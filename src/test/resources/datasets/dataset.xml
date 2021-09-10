@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+
+<dataset>
+	<event id="1" title="Paseo por el parque" description="Reunión para dar un paseo por el parque con las mascotas" category="ocio" eventdate="2022-08-16 12:00:00" place="Parque de Vigo" capacity="2" managerId="1"/>
+	<event id="2" title="Charla sobre Aladín" description="Charla sosegada sobre la última película protagonizada por Will Smith" category="cine" eventdate="2022-05-24 17:00:00" place="Cafetería Informática, Ourense" capacity="10" managerId="1"/>
+	<event id="3" title="Gimnasio" description="Ir al gimnasio en comuna" category="deportes" eventdate="2022-01-10 19:00:00" place="Gimnasio" capacity="4" managerId="1" />
+	<event id="4" title="Nos comen los teletubbies" description="Charlando sobre las últimas tendencias en televisión infantil" category="television" eventdate="2022-09-27 15:00:00" place="Centro Comercial, Ourense" capacity="19" managerId="1"/>
+	<event id="5" title="Reunion de lectura" description="Comentando los ultimos libros de Brandon Sanderson" category="libros" eventdate="2022-09-27 18:00:00" place="Cafetería Noustum" capacity="4" managerId="1"/>
+	<event id="6" title="Partida de mus" description="La partida de todos los domingos" category="ocio" eventdate="2022-11-02 15:00:00" place="El graduado" capacity="5" managerId="1"/>
+	<event id="7" title="Club de ajedrez" description="Clases de ajedrez y practicas" category="deportes" eventdate="2028-09-11 15:00:00" place="Pabellon de estudiantes" capacity="15" managerId="1"/>
+	<event id="8" title="Reunion de filosofia" description="Analisis del trabajo de Imanuel Kant" category="libros" eventdate="2028-09-27 15:00:00" place="Biblioteca" capacity="8" managerId="1"/>
+	<event id="9" title="Charla de ingles" description="El ingles se enseña mal" category="ocio" eventdate="2028-09-01 15:00:00" place="Centro Comercial, Ourense" capacity="20" managerId="1"/>
+	<event id="10" title="Evento Pasado" description="Este evento ya ha ocurrido y no se deberia ver" category="ocio" eventdate="2020-09-01 15:00:00" place="Centro Comercial, Ourense" capacity="5" managerId="1"/>
+
+
+	<users id="1" login="persona" password="unodostres" role="participante" mail="persona@gmail.com" />
+	<users id="2" login="randomp" password="unodostres" role="participante" mail="randomp@gmail.com" />
+	<users id="3" login="pepito" password="unodostres" role="participante" mail="pepito@gmail.com"  />
+	<users id="4" login="anonimo" password="unodostres" role="participante" mail="anonimo@gmail.com"  />
+	
+	
+	<users_event  id="1" user_id="1" event_id="1" />
+	<users_event  id="2" user_id="2" event_id="1" />
+	<users_event  id="3" user_id="1" event_id="2" />
+
+</dataset>

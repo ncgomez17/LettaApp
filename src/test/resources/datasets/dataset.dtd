@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT dataset (event*,users*,users_event*)>
+<!ELEMENT event EMPTY>
+<!ELEMENT users EMPTY>
+<!ELEMENT users_event EMPTY>
+
+<!ATTLIST event
+    id CDATA #IMPLIED
+    title CDATA #IMPLIED
+    description CDATA #IMPLIED
+    category CDATA #IMPLIED
+    eventdate CDATA #IMPLIED
+	place CDATA #IMPLIED
+    capacity CDATA #IMPLIED
+    image CDATA #IMPLIED
+    extension CDATA #IMPLIED
+    managerId CDATA #IMPLIED
+>
+
+<!ATTLIST users
+    id CDATA #IMPLIED
+    login CDATA #IMPLIED
+    password CDATA #IMPLIED
+    role CDATA #IMPLIED
+    mail CDATA #IMPLIED
+>
+
+<!ATTLIST users_event
+    id CDATA #IMPLIED
+    user_id CDATA #IMPLIED
+    event_id CDATA #IMPLIED
+>

@@ -1,0 +1,16 @@
+html, body {
+	height: 100%;
+}
+
+.card-block p {
+	margin-bottom: 0rem;
+}
+
+nav{
+	display:table;
+	margin:auto;
+	padding:10px;
+}
+.card.p-3 {
+	cursor:pointer;
+}

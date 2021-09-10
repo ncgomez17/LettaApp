@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>LETTA</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/main.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header>
+		<div class="navbar navbar-dark bg-dark box-shadow">
+			<div class="container d-flex justify-content-between">
+				<a href="/LETTA/main.html" class="navbar-brand d-flex align-items-center"> <strong>LETTA</strong>
+				</a>
+				<form method="get">
+					<div class="input-group" style="width: 500px;">
+						<input type="text" class="form-control"
+							placeholder="Busca por titulo o descripcion del evento" id="search-pattern">
+						<div class="input-group-append">
+							<button class="btn btn-secondary" value="Search" type="button" onclick="searchEvent()" id="search-button">Buscar
+							</button>
+						</div>
+					</div>
+				</form>
+				<button id="logout" class="btn btn-dark" onClick="showLogin()">Iniciar
+					Sesión</button>
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+		<div id="event-container">
+			<h4 id="no-events-found" style="text-align: left; margin-top: 50px;">No
+				se han encontrado eventos recientes</h4>
+		</div>
+	</div>
+
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript" src="js/view/event.js"></script>
+	<script type="text/javascript" src="js/dao/event.js"></script>
+	<script type="text/javascript" src="js/view/eventView.js"></script>
+	<script type="text/javascript" src="js/view/eventSearch.js"></script>
+	<script type="text/javascript" src="js/view/loginView.js"></script>
+	<script type="text/javascript">
+		$(document).ready(			
+			function() {				
+				var eventView = new EventView(new EventDAO(),
+						'event-view-container');
+			    var view = new EventListView(new EventDAO(),
+			    	'event-container',eventView
+		    	);
+			    view.init(0);
+			    
+			    $("form").keypress(function(e){
+			    	// ENTER -> key 13
+				  	if (event.keyCode === 13) {
+				    	event.preventDefault();
+				    	document.getElementById("search-button").click();
+				    	// return false;
+				  	}
+			    });
+			});
+	
+		function showEvent(eventId, page, title) {
+			var view;
+			if (title == null) {
+			 	view = new EventListView(new EventDAO(), 'event-container');
+			} else {
+				view = new EventSearchView(new EventDAO(), 'event-container');
+			}
+			var eventView = new EventView(new EventDAO(), 'event-container');
+			eventView.init(eventId, page, view, title);
+		}
+		
+		function searchEvent() {
+            var title = document.getElementById("search-pattern").value;
+            if(title.length > 1) {
+                var eventSearch = new EventSearchView(new EventDAO(), 'event-container');
+                eventSearch.init(title, 0);
+            } else {
+                alert("La palabra a buscar debe contener al menos dos caracteres");
+            }
+        }
+		
+		function showLogin() {
+			var view = new EventListView(new EventDAO(), 'event-container');
+			var loginView = new LoginView(new EventDAO(), 'event-container');
+			loginView.init();
+		}
+	</script>
+
+</body>
+</html>
